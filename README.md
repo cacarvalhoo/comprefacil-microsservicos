@@ -79,3 +79,17 @@ imediata e, após cerca de 5 segundos, notificação de confirmação. O status 
 2. Envie um pagamento: ele conclui normalmente (SUCCESS).
 3. No painel do RabbitMQ, a fila `notification.queue` acumula as mensagens (Ready = 2).
 4. Suba a notificação de novo: ela consome as mensagens pendentes e envia as notificações.
+
+## Evidências dos testes
+
+Pagamento concluído com a notificação desligada:
+
+![Pagamento com SUCCESS](docs/01-pagamento-success.png)
+
+Mensagens guardadas na fila do RabbitMQ:
+
+![Fila com Ready = 2](docs/02-rabbitmq-fila-ready-2.png)
+
+Notificação religada consumindo as mensagens pendentes:
+
+![Notificação consumindo](docs/03-notificacao-consumindo.png)
